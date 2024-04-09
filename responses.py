@@ -23,7 +23,6 @@ def get_api_response(var):
         print("Error:", response.status_code, response.text)
 def get_response(message: str) -> str:
     p_message=message.lower()
-    parameters={}
     print("hello", message)
     if p_message=='hello':
         return 'Hey There'
@@ -37,19 +36,13 @@ def get_response(message: str) -> str:
         var=p_message.split(" ")
         var=var[1:]
         res= get_api_response(var)
-        message=''
         print("res", type(res))
+        message = ''
         for i in range(len(res)):
-            message+="Car "+i+"\n"
-            kys=res[i].keys()
-            for j in range(len(kys)):
-                message+=kys[j]+": "+res[i][kys[j]]+"\n"
-            message+="\n\n"
-
-        # for i, car in enumerate(res, start=1):
-        #     message += f"Car {i}:\n"
-        #     for key, value in car.items():
-        #         message += f"{key}: {value}\n"
-        #     message+='\n\n'
+            message += "Car " + str(i) + "\n"
+            kys = res[i].keys()
+            for key in kys:
+                message += str(key) + ": " + str(res[i][key]) + "\n"
+            message += "\n\n"
         return message
     return' I didnt understand what you are saying. Try typing !help'
