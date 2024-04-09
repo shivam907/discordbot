@@ -39,7 +39,7 @@ def get_response(message: str) -> str:
         print("res", type(res))
         message = ''
         for i in range(len(res)):
-            message += "Car " + str(i) + "\n"
+            message += "Car " + str(i+1) + "\n"
             kys = res[i].keys()
             for key in kys:
                 message += str(key) + ": " + str(res[i][key]) + "\n"
